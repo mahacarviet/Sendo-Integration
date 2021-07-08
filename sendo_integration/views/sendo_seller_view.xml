@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sendo_seller_form_view" model="ir.ui.view">
+            <field name="name">sendo_seller.form</field>
+            <field name="model">sendo.seller</field>
+            <field name="arch" type="xml">
+                <form string="Sendo Seller" create="false" delete="false">
+                    <sheet>
+                        <group>
+                            <field name="shop_key"/>
+                            <field name="secret_key"/>
+                            <field name="token_connection"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sendo_seller_tree_view" model="ir.ui.view">
+            <field name="name">sendo_seller.tree</field>
+            <field name="model">sendo.seller</field>
+            <field name="arch" type="xml">
+                <tree string="Sendo Seller" create="false" delete="false" sample="1">
+                    <field name="shop_key"/>
+                    <field name="secret_key"/>
+                    <field name="token_connection"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sendo_seller_act_window" model="ir.actions.act_window">
+            <field name="name">Sendo Seller</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sendo.seller</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Connect to your shop with Connection parameters
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                name="Sendo Seller"
+                id="sendo_seller_menu"
+                parent="sendo_seller_product_menu"
+                action="sendo_seller_act_window"
+                sequence="40"/>
+    </data>
+</odoo>

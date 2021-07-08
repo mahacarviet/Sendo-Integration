@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sendo_list_order_form_view" model="ir.ui.view">
+            <field name="name">sendo.list.order.form</field>
+            <field name="model">sendo.list.order</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="order_number"/>
+                            <h1>
+                                <field name="order_number" placeholder="Order ID"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="order_status"/>
+                                <field name="payment_status"/>
+                                <field name="payment_method"/>
+                                <field name="total_amount"/>
+                                <field name="total_amount_buyer"/>
+                                <field name="sub_total"/>
+                            </group>
+                            <group>
+                                <field name="order_date_time_stamp"/>
+                                <field name="receiver_name"/>
+                                <field name="buyer_phone"/>
+                                <field name="receiver_full_address"/>
+                                <field name="receiver_email"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Information Product" name="information_product">
+                                <field name="product_in_order">
+                                    <tree>
+                                        <field name="product_variant_id"/>
+                                        <field name="product_name"/>
+                                        <field name="sku"/>
+                                        <field name="quantity"/>
+                                        <field name="price"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="product_variant_id"/>
+                                                <field name="product_name"/>
+                                                <field name="sku"/>
+                                            </group>
+                                            <group>
+                                                <field name="quantity"/>
+                                                <field name="price"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="sendo_list_order_tree_view" model="ir.ui.view">
+            <field name="name">sendo.list.order.tree</field>
+            <field name="model">sendo.list.order</field>
+            <field name="arch" type="xml">
+                <tree string="Sendo Order" sample="1">
+                    <field name="order_number"/>
+                    <field name="order_status"/>
+                    <field name="payment_status"/>
+                    <field name="payment_method"/>
+                    <field name="total_amount"/>
+                    <field name="total_amount_buyer"/>
+                    <field name="order_date_time_stamp"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sendo_list_order_kanban_view" model="ir.ui.view">
+            <field name="name">sendo.list.order.kanban</field>
+            <field name="model">sendo.list.order</field>
+            <field name="arch" type="xml">
+                <kanban sample="1">
+                    <field name="order_number"/>
+                    <field name="order_status"/>
+                    <field name="total_amount"/>
+                    <field name="total_amount_buyer"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="order_number"/>
+                                    </strong>
+                                    <ul>
+                                        <li>
+                                            SKU:
+                                            <field name="order_status"/>
+                                        </li>
+                                        <li>
+                                            Price Product:
+                                            <field name="total_amount"/>
+                                        </li>
+                                        <li>
+                                            Price Order:
+                                            <field name="total_amount_buyer"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="sendo_list_order_act_window" model="ir.actions.act_window">
+            <field name="name">Seller List Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sendo.list.order</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click Create to add new Order.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem
+                name="My Order"
+                id="sendo_list_order_action"
+                parent="sendo_seller_product_menu"
+                action="sendo_list_order_act_window"
+                sequence="20"/>
+    </data>
+</odoo>

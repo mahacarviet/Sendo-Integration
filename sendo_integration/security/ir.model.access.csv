@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sendo_seller_product,access_sendo_seller_product,model_sendo_seller_product,,1,1,1,1
+access_sendo_connect_wizard,access_sendo_connect_wizard,model_sendo_connect_wizard,,1,1,1,1
+access_sendo_list_order,access_sendo_list_order,model_sendo_list_order,,1,1,1,1
+access_sendo_categories,access_sendo_categories,model_sendo_categories,,1,1,1,1
+access_sendo_seller,access_sendo_seller,model_sendo_seller,,1,1,1,1
+access_product_order_sendo,access_product_order_sendo,model_product_order_sendo,,1,1,1,1

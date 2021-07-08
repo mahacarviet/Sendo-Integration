@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sendo_seller_connect_wizard_form_view" model="ir.ui.view">
+            <field name="name">sendo.seller.connect.wizard.form</field>
+            <field name="model">sendo.connect.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Connect Sendo Integration">
+                    <sheet>
+                        <group>
+                            <field name="shop_key"/>
+                            <field name="secret_key"/>
+                        </group>
+                        <footer>
+                            <button name="get_token_sendo" string="Connect" type="object" class="btn-primary"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sendo_seller_connect_act_window" model="ir.actions.act_window">
+            <field name="name">Connect</field>
+            <field name="res_model">sendo.connect.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sendo_seller_connect_wizard_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+<!--        <record id="ir_cron_update_token_sendo" model="ir.cron">-->
+<!--        <field name="name">Update Token Sendo</field>-->
+<!--        <field name="model_id" ref="sendo_integration.model_sendo_connect_wizard"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">model.update_token_sendo()</field>-->
+<!--        <field name="interval_number">8</field>-->
+<!--        <field name="interval_type">hours</field>-->
+<!--        <field name="numbercall">-1</field>-->
+<!--        <field name="doall" eval="False"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_attribute_inherit_show_sendo_attribute" model="ir.ui.view">
+            <field name="name">product.attribute.sendo.attribute</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='create_variant']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="sendo_attribute_id"/>
+                    <field name="sendo_attribute_code"/>
+                    <field name="check_sendo_attribute" force_save="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
